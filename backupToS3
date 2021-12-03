@@ -1,0 +1,23 @@
+#!/bin/bash
+NOW=$(date +"%m-%d-%y-%H-%M")
+FILE="backup$NOW"
+cp /home/hal/.hal/config /home/hal/.hal/config$FILE
+aws s3 cp /home/hal/.hal/config$FILE s3://dtvspinnakerconfigs/config$FILE
+
+
+##########################################
+
+#!/bin/bash
+NOW=$(date +"%m-%d-%y-%H-%M")
+FILE="backup$NOW"
+cp /home/hal/.hal/config /home/hal/.hal/backup-config/config$FILE
+aws s3 cp /home/hal/.hal/backup-config/config$FILE s3://dtvspinnakerconfigs/config$FILE
+
+
+###############################################################
+
+#!/bin/bash
+NOW=$(date +"%m-%d-%y-%H-%M")
+FILE="backup$NOW"
+cp /home/hal/.hal/config /home/hal/.hal/backup-config-s3/config$FILE
+aws s3 cp /home/hal/.hal/backup-config-s3/config$FILE s3://dtvspinnakerconfigs/config$FILE
